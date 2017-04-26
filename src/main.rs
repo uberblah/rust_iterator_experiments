@@ -1,5 +1,16 @@
 #![allow(dead_code)]
 
+// an exercise inspired by the question
+// "what 4 consecutive primes add to 220?"
+//
+// solve_problem() solves the problem given appropriate TOP and N
+//   (example N = 4, TOP = 220)
+// enumerate_primes() when combined with the bit in main, can be used
+//   to enumerate the first 1000000 possible variations of that question,
+//   (example N = 17, TOP = 263075679)
+// note that this is not a hard problem to solve algorithmically,
+//   but it was fun to solve it using Rust's iterators
+
 const TOP: usize = 220;
 const N: usize = 17;
 
@@ -25,6 +36,7 @@ fn iterate_primes(nprimes: usize) -> Vec<usize> {
         if is_prime {Some(n)} else {None}
     }).take(nprimes).collect()
 }
+
 
 fn solve_problem() {
     // enumerate all primes less than 220, by filtering out non-primes
